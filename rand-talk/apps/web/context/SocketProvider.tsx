@@ -4,6 +4,7 @@
 import React, { useCallback, useEffect } from 'react'
 import {io} from 'socket.io-client'
 
+//as it is mounted tries to connect a socket connection
 interface SocketProviderProps {
     children?:React.ReactNode
 }
