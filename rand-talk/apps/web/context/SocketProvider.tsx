@@ -1,7 +1,7 @@
 'use client'
 
 //frontend 
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useContext, useEffect } from 'react'
 import {io} from 'socket.io-client'
 
 //as it is mounted tries to connect a socket connection
@@ -16,6 +16,15 @@ interface ISocketContext {
 
 
 const SocketContext=React.createContext<ISocketContext | null>((null));
+
+
+export const useSocket = () =>{
+    const state = useContext(SocketContext)
+    if(!state) throw new Error(`state is undefined`)
+
+    return state;
+}
+
 
 export const SocketProvider: React.FC<SocketProviderProps> = ({children})=>{
 
