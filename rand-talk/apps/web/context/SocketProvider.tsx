@@ -1,7 +1,8 @@
 'use client'
 
 //frontend 
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
+import {io} from 'socket.io-client'
 
 interface SocketProviderProps {
     children?:React.ReactNode
@@ -19,6 +20,14 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children})=>{
 
     const sendMsg: ISocketContext['sendMsg'] = useCallback((msg)=>{
         console.log("SEND MESSage")
+    },[])
+
+    useEffect(()=>{
+        const _socket = io('http://localhost:8000') //helps in connecteion
+
+        return ()=>{ //cleaer fucnoitn si returned
+            _socket.disconnect();
+        };
     },[])
 
 
