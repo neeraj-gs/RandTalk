@@ -1,4 +1,21 @@
 import { Server } from "socket.io";
+import {Redis} from 'ioredis'
+
+
+const pub = new Redis({
+    host:"",
+    port:23394,
+    username:'',
+    password:''
+    
+});
+const sub = new Redis({
+    host:"",
+    port:23394,
+    username:'',
+    password:''
+});
+
 
 class SocketService{
     private _io:Server; //class instance varaible
@@ -10,6 +27,9 @@ class SocketService{
                 origin:"*"
             }
         }); //intilaised a socket io server
+
+
+        sub.subscribe('MESSAGES')
     }
 
     public initListeners(){
@@ -24,11 +44,21 @@ class SocketService{
                 console.log("New Message Recieved",message)
                 //as we recieve a messge to server , we need to publish on redis so taht all users ge tthe messagae
 
-                
+                await pub.publish('MESSAGES',JSON.stringify({message}))
+                //user ends msg to server, server sends to redis and tehn for multple servers , taht server pullst hte msg and send to all servers
+
 
             })
 
         })
+
+        sub.on('message',(channel,message)=>{
+            if(channel === 'MESSAGES'){
+                io.emit('message',message);
+            }
+        })
+
+        
     }
 
     get io(){
