@@ -1,8 +1,9 @@
 'use client'
 
 //frontend 
-import React, { useCallback, useContext, useEffect } from 'react'
-import {io} from 'socket.io-client'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
+import {io,Socket} from 'socket.io-client'
+// import { Socket } from 'socket.io-client/debug';
 
 //as it is mounted tries to connect a socket connection
 interface SocketProviderProps {
@@ -28,15 +29,22 @@ export const useSocket = () =>{
 
 export const SocketProvider: React.FC<SocketProviderProps> = ({children})=>{
 
+    const [socket,setSocket] = useState<Socket>()
+
     const sendMsg: ISocketContext['sendMsg'] = useCallback((msg)=>{
-        console.log("SEND MESSage")
+        console.log("SEND MESSage",msg)
+        if(socket){
+            socket.emit("event:message",{message:msg})
+        }
     },[])
 
     useEffect(()=>{
         const _socket = io('http://localhost:8000') //helps in connecteion
+        setSocket(_socket)
 
         return ()=>{ //cleaer fucnoitn si returned
             _socket.disconnect();
+            setSocket(undefined)
         };
     },[])
 
