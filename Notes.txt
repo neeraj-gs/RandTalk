@@ -22,3 +22,4 @@ Aiven - Data Platform running on , adn all services are presetn , to use redis w
 we connect the servers to aiven and use Pub/Sub Architecture , intermidiate pubsub mecahnism
 
 
+MOno repo - we can have our backend , frontend and platform or databade in a single repo adn to mange it we use turbo repo
