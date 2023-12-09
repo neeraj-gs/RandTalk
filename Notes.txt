@@ -23,3 +23,12 @@ we connect the servers to aiven and use Pub/Sub Architecture , intermidiate pubs
 
 
 MOno repo - we can have our backend , frontend and platform or databade in a single repo adn to mange it we use turbo repo
+
+
+Main Logic
+    Listen to events on SOcket and also sync it with redis 
+    IN a CHat message app , as a user we emit events[send events or todo to server] ,
+    We can also subscribe to events, that means that it is the reciever of the event , and subscribed gets recieved the ,essage
+    
+
+
