@@ -29,6 +29,18 @@ Main Logic
     Listen to events on SOcket and also sync it with redis 
     IN a CHat message app , as a user we emit events[send events or todo to server] ,
     We can also subscribe to events, that means that it is the reciever of the event , and subscribed gets recieved the ,essage
-    
+
+We can use a context where all fucntions can be modularized
+
+redis insignt is a tool used to look databse visually
+clear
 
 
+TO Scale Up teh server 
+    cd apps / server 
+    export PORT =8001 && npm start 
+    //this is a completely diffrent server and when we send message redis sends this to all of teh,
+
+    //now redissneds this messages to al server nad users connected to teh servers
+
+    //we can spin up any number of servers and scale it up
