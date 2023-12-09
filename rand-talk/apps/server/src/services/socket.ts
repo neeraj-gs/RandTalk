@@ -22,6 +22,10 @@ class SocketService{
             //on this socket , we can setup event listeniners
             socket.on("event:message",async ({message}:{message:string})=>{
                 console.log("New Message Recieved",message)
+                //as we recieve a messge to server , we need to publish on redis so taht all users ge tthe messagae
+
+                
+
             })
 
         })
