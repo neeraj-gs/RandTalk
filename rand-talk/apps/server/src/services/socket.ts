@@ -3,17 +3,17 @@ import {Redis} from 'ioredis'
 
 
 const pub = new Redis({
-    host:"",
+
+    host:process.env.REDIS_HOST,
     port:23394,
-    username:'',
-    password:''
-    
+    username:process.env.REDIS_USERNAME,
+    password:process.env.REDIS_PASSWORD
 });
 const sub = new Redis({
-    host:"",
+    host:process.env.REDIS_HOST,
     port:23394,
-    username:'',
-    password:''
+    username:process.env.REDIS_USERNAME,
+    password:process.env.REDIS_PASSWORD
 });
 
 
