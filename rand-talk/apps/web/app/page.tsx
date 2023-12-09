@@ -5,7 +5,7 @@ import { useSocket } from "../context/SocketProvider"
 
 export default function Page(){
 
-  const {sendMsg} = useSocket();
+  const {sendMsg,messages} = useSocket();
   const [msg,setMsg] = useState('')
 
   return(
@@ -16,6 +16,10 @@ export default function Page(){
       <div>
         <input onChange={e=>setMsg(e.target.value)} type="text" placeholder="Enter Message Here.." />
         <button onClick={() => sendMsg(msg)}>Send</button>
+      </div>
+
+      <div>
+        {messages.map(e=> <li>{e}</li>)}
       </div>
     </div>
   )
