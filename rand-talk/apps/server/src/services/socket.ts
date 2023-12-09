@@ -20,7 +20,7 @@ class SocketService{
             console.log("New Socket conencted",socket.id)
 
             //on this socket , we can setup event listeniners
-            socket.on('event:message',async ({message}:{message:string})=>{
+            socket.on("event:message",async ({message}:{message:string})=>{
                 console.log("New Message Recieved",message)
             })
 

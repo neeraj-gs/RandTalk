@@ -36,10 +36,10 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children})=>{
         if(socket){
             socket.emit("event:message",{message:msg})
         }
-    },[])
+    },[socket])
 
     useEffect(()=>{
-        const _socket = io('http://localhost:8000') //helps in connecteion
+        const _socket = io('http://localhost:8000'); //helps in connecteion
         setSocket(_socket)
 
         return ()=>{ //cleaer fucnoitn si returned

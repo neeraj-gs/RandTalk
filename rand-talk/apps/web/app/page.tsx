@@ -15,7 +15,7 @@ export default function Page(){
       </div>
       <div>
         <input onChange={e=>setMsg(e.target.value)} type="text" placeholder="Enter Message Here.." />
-        <button onClick={() => sendMsg(msg)}>Send</button>
+        <button onClick={e => sendMsg(msg)}>Send</button>
       </div>
     </div>
   )
