@@ -1,0 +1,24 @@
+RandTalk 
+    Full Stack Chat APP , htat is scalable completely
+    Web Sockets scaling 
+    Real TIme Apllication 
+
+
+Tech Stack:
+    NextJs
+    TurboRepo
+    NOdeJs
+    Redis
+    Aiven 
+
+A Real Time Chat App 
+    CLients get connected with a scoket connection with our sever 
+        we can do real time comunication using the app 
+        This can never be sacled up if teh number of users are increasing
+
+    If 2 diffretn servers are used and 2 users on  difretn server then commnication is not possible betewen diffrent servers, so we solve that problem 
+
+Aiven - Data Platform running on , adn all services are presetn , to use redis we use aiven platform 
+we connect the servers to aiven and use Pub/Sub Architecture , intermidiate pubsub mecahnism
+
+
